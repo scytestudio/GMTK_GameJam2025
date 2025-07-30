@@ -13,7 +13,7 @@ This project is built using Unreal Engine 5 and Blueprint, with a focus on gamep
 🧙‍♂️ Player Interactions
 🗝️ Tasks and Audio Narration
 🚧 Current Development Workflow
-Actively building the game for GJL Game Parade Spring 2025 Game Jam with the Theme: Feedback Loop with the following milestones:
+Actively building the game for GMTK Game Jam 2025 with the Theme: Feedback Loop with the following milestones:
 
 ✅ Core Systems Implemented
  Game Mode, and Instance
@@ -24,9 +24,11 @@ Actively building the game for GJL Game Parade Spring 2025 Game Jam with the The
  Level Streaming polish & navigation
  Integrating Narration with the Interaction System
  Game end conditions
+
 🛠️ In Progress
 🧪 Planned Features
  DLC Extend Story
+
 📂 Repo Structure
 /Core/                        --> Main game logic
 /Core/Assets/                 --> Game Audio Textures, Materials, Models etc...
@@ -39,6 +41,7 @@ Actively building the game for GJL Game Parade Spring 2025 Game Jam with the The
 /Core/Inputs                  --> Input Binding Logic
 /Core/LevelStreaming          --> Level Streaming Related
 /Core/Maps/                   --> UE5 levels
+
 🚀 How to Run the Game
 Note: You will need Unreal Engine 5.4 installed to run this project.
 
