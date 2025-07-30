@@ -1,9 +1,9 @@
-🏰 GMTK Game Jam 2025
+# 🏰 GMTK Game Jam 2025
 Enter Description Here <===
 
 Unreal Engine Blueprint
 
-🎮 Enter Game Name Here <===
+# 🎮 Enter Game Name Here <===
 Enter Game Description Here <===
 
 This project is built using Unreal Engine 5 and Blueprint, with a focus on gameplay programming, narrative driven walking simulator, mystery, and puzzle game design.
@@ -13,7 +13,7 @@ This project is built using Unreal Engine 5 and Blueprint, with a focus on gamep
 🧙‍♂️ Player Interactions
 🗝️ Tasks and Audio Narration
 🚧 Current Development Workflow
-Actively building the game for GMTK Game Jam 2025 with the Theme: Feedback Loop with the following milestones:
+Actively building the game for GMTK Game Jam 2025 with the Theme: Enter Theme Here <=== with the following milestones:
 
 ✅ Core Systems Implemented
  Game Mode, and Instance
