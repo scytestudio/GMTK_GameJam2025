@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+// Scyte Studio 2025 ⓒ Copyright
 
 using UnrealBuildTool;
 
@@ -8,7 +8,7 @@ public class GMTK_GameJam2025 : ModuleRules
 	{
 		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
 	
-		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore" });
+		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore", "PaperZD", "EnhancedInput" });
 
 		// PrivateDependencyModuleNames.AddRange(new string[] {  });
 
