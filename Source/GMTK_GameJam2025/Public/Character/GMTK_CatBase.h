@@ -19,6 +19,8 @@ class GMTK_GAMEJAM2025_API AGMTK_CatBase : public APaperZDCharacter
 
 public:
 	AGMTK_CatBase();
+
+	
 	
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category="Cat|Components")
 	USceneCaptureComponent2D* CaptureComponent;
@@ -48,4 +50,8 @@ public:
 	void MoveCat(float Direction);
 	void DashCat();
 	void JumpCat();
+	
+protected:
+	// Called when the game starts or when spawned
+	virtual void BeginPlay() override;
 };
