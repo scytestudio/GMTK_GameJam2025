@@ -1,7 +1,7 @@
 // Scyte Studio 2025 ⓒ Copyright
 
 
-#include "Pawn/GMTK_RealCatBase.h"
+#include "Character/GMTK_RealCatBase.h"
 
 #include "PaperFlipbookComponent.h"
 
@@ -17,26 +17,27 @@ AGMTK_RealCatBase::AGMTK_RealCatBase()
 	CatHandFlipBook->SetupAttachment(GetSprite());
 }
 
-void AGMTK_RealCatBase::UpdateCatState(EGMTK_RealCatStates NewState)
-{
-	CurrentState = NewState;
+// void AGMTK_RealCatBase::UpdateCatState(EGMTK_RealCatBodyStates NewState)
+// {
+	// CurrentState = NewState;
+	// return; 
 	// only update the hand Flipbook
-	if (CatHandFLBK)
-	{
-		if (CurrentState == EGMTK_RealCatStates::ERCS_Hand)
-		{CatHandFlipBook->SetFlipbook(CatHandFLBK);}
-		else
-		{
-			CatHandFlipBook->SetFlipbook(nullptr);
-		}
-	}
-}
+	// if (CatHandFLBK)
+	// {
+		// if (CurrentState == EGMTK_RealCatBodyStates::ERCS_Hand)
+		// {CatHandFlipBook->SetFlipbook(CatHandFLBK);}
+		// else
+		// {
+		// 	CatHandFlipBook->SetFlipbook(nullptr);
+		// }
+	// }
+// }
 
 // Called when the game starts or when spawned
 void AGMTK_RealCatBase::BeginPlay()
 {
 	Super::BeginPlay();
-	UpdateCatState(EGMTK_RealCatStates::ERCS_Sleep);
+	// UpdateCatState(EGMTK_RealCatBodyStates::ERCS_Sleep);
 	
 }
 
@@ -50,5 +51,10 @@ void AGMTK_RealCatBase::Tick(float DeltaTime)
 void AGMTK_RealCatBase::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
+}
+
+void AGMTK_RealCatBase::UpdateCatBodyAnimation_Implementation(EGMTK_RealCatBodyStates NewState)
+{
+	CurrentState = NewState;
 }
 

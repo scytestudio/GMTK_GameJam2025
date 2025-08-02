@@ -71,3 +71,10 @@ void AGMTK_CatBase::JumpCat()
 		Jump();
 	}
 }
+
+void AGMTK_CatBase::BeginPlay()
+{
+	Super::BeginPlay();
+
+	OnDashOverrideEndDelegate.BindUObject(this, &AGMTK_CatBase::OnDashOverrideAnimEnd);
+}

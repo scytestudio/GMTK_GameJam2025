@@ -5,14 +5,16 @@
 #include "CoreMinimal.h"
 #include "PaperZDCharacter.h"
 #include "Data/GMTK_Enums.h"
+#include "Data/Interfaces/RealCatInterface.h"
 #include "GameFramework/Pawn.h"
 #include "GMTK_RealCatBase.generated.h"
 
 class UPaperFlipbook;
-enum class EGMTK_RealCatStates : uint8;
+enum class EGMTK_RealCatBodyStates : uint8;
+enum class EGMTK_RealCatHandStates : uint8;
 
 UCLASS()
-class GMTK_GAMEJAM2025_API AGMTK_RealCatBase : public APaperZDCharacter
+class GMTK_GAMEJAM2025_API AGMTK_RealCatBase : public APaperZDCharacter, public IRealCatInterface
 {
 	GENERATED_BODY()
 
@@ -30,12 +32,10 @@ public:
 private:
 	
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="00|Real Cat|Props",meta=(AllowPrivateAccess = "true"))
-	EGMTK_RealCatStates CurrentState{ EGMTK_RealCatStates::ERCS_Hand };
-	
-	void UpdateCatState(EGMTK_RealCatStates NewState);
+	EGMTK_RealCatBodyStates CurrentState{ EGMTK_RealCatBodyStates::ERCS_Sleep };
+
 	
 protected:
-	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
 	
@@ -46,6 +46,8 @@ public:
 
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+	virtual void UpdateCatBodyAnimation_Implementation(EGMTK_RealCatBodyStates NewState) override;
 
-	FORCEINLINE EGMTK_RealCatStates GetCatState() const { return CurrentState; }
+	UFUNCTION(BlueprintCallable, BlueprintPure)
+	FORCEINLINE EGMTK_RealCatBodyStates GetCatState() const { return CurrentState; }
 };
