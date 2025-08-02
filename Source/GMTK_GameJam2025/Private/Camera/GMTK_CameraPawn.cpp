@@ -7,7 +7,7 @@
 #include "Character/GMTK_CatBase.h"
 #include "EnhancedInputComponent.h"
 #include "EnhancedInputSubsystems.h"
-#include "PlatformManager.h"
+#include "Platform/GMTK_PlatformManager.h"
 #include "Kismet/GameplayStatics.h"
 
 AGMTK_CameraPawn::AGMTK_CameraPawn()
@@ -30,7 +30,7 @@ void AGMTK_CameraPawn::BeginPlay()
 		}
 	}
 	CatRef = Cast<AGMTK_CatBase>(UGameplayStatics::GetActorOfClass(this, AGMTK_CatBase::StaticClass()));
-	PlatformManagerRef = Cast<APlatformManager>(UGameplayStatics::GetActorOfClass(this, APlatformManager::StaticClass()));
+	PlatformManagerRef = Cast<AGMTK_PlatformManager>(UGameplayStatics::GetActorOfClass(this, AGMTK_PlatformManager::StaticClass()));
 	if (CatRef)
 	{
 		UE_LOG(LogTemp, Warning, TEXT("Cat is alive"));
@@ -65,6 +65,9 @@ void AGMTK_CameraPawn::SetupPlayerInputComponent(UInputComponent* PlayerInputCom
 		
 		EnhancedInputComponent->BindAction(SelectPlatformAction, ETriggerEvent::Started, this
 			, &AGMTK_CameraPawn::SelectPlatform);
+
+		EnhancedInputComponent->BindAction(Debug_RandomizePlatformsAction, ETriggerEvent::Started, this
+			, &AGMTK_CameraPawn::DEBUG_RandomizePlatforms);
 	}
 }
 
@@ -124,6 +127,14 @@ void AGMTK_CameraPawn::SelectPlatform(const FInputActionValue& Value)
 		// Log for debug
 		GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Cyan,
 			FString::Printf(TEXT("Platform Manager Ref Found - Can Select Platform")));
+	}
+}
+
+void AGMTK_CameraPawn::DEBUG_RandomizePlatforms(const FInputActionValue& Value)
+{
+	if (PlatformManagerRef)
+	{
+		PlatformManagerRef->RandomizeInView(4);
 	}
 }
 
