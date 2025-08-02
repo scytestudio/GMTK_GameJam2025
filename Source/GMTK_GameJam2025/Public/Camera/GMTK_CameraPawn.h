@@ -12,7 +12,7 @@ struct FInputActionValue;
 class UInputMappingContext;
 class UInputAction;
 class AGMTK_CatBase;
-class APlatformManager;
+class AGMTK_PlatformManager;
 
 UCLASS()
 class GMTK_GAMEJAM2025_API AGMTK_CameraPawn : public APawn
@@ -25,7 +25,7 @@ public:
 	// Cat Reference
 	AGMTK_CatBase* CatRef{ nullptr };
 	//Platform Manager Ref
-	APlatformManager* PlatformManagerRef{  nullptr };
+	AGMTK_PlatformManager* PlatformManagerRef{  nullptr };
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category="Camera|Components")
 	UCameraComponent* Camera;
@@ -52,6 +52,9 @@ public:
 	UInputAction* MovePlatformAction;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Camera|Inputs|Cat")
 	UInputAction* SelectPlatformAction;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Camera|Inputs|Cat")
+	UInputAction* Debug_RandomizePlatformsAction;
 	
 protected:
 	// Called when the game starts or when spawned
@@ -74,4 +77,5 @@ public:
 	
 	void MovePlatform(const FInputActionValue& Value);
 	void SelectPlatform(const FInputActionValue& Value);
+	void DEBUG_RandomizePlatforms(const FInputActionValue& Value);
 };
