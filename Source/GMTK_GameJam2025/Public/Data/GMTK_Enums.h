@@ -18,6 +18,17 @@ enum class EGMTK_RealCatHandStates : uint8
 	ERCS_HandIdle UMETA(DisplayName = "Hand Idle"),
 	ERCS_HandMoving UMETA(DisplayName = "Hand Moving"),
 };
+
+UENUM(BlueprintType)
+enum class EGMTK_PlatformTracks : uint8
+{
+	EPTS_Percussion UMETA(DisplayName = "Percussion"),
+	EPTS_Bass UMETA(DisplayName = "Bass"),
+	EPTS_Lead UMETA(DisplayName = "Lead"),
+	EPTS_Pad UMETA(DisplayName = "Pad"),
+	EPTS_Arpeggio UMETA(DisplayName = "Arpeggio"),
+};
+
 /**
  * 
  */
