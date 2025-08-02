@@ -20,15 +20,13 @@ enum class EGMTK_RealCatHandStates : uint8
 };
 
 UENUM(BlueprintType)
-enum class EGMTK_PlatformTracks : uint8
+enum class EGMTK_KeyboardStates : uint8
 {
-	EPTS_Percussion UMETA(DisplayName = "Percussion"),
-	EPTS_Bass UMETA(DisplayName = "Bass"),
-	EPTS_Lead UMETA(DisplayName = "Lead"),
-	EPTS_Pad UMETA(DisplayName = "Pad"),
-	EPTS_Arpeggio UMETA(DisplayName = "Arpeggio"),
+	EKS_Idle UMETA(DisplayName = "Idle"),
+	EKS_PlayLeft UMETA(DisplayName = "PlayLeft"),
+	EKS_PlayRight UMETA(DisplayName = "PlayRight"),
+	EKS_PlayBoth UMETA(DisplayName = "PlayBoth"),
 };
-
 /**
  * 
  */

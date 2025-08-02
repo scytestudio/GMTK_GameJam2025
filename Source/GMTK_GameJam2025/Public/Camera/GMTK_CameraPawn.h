@@ -24,7 +24,6 @@ public:
 
 	// Cat Reference
 	AGMTK_CatBase* CatRef{ nullptr };
-
 	//Platform Manager Ref
 	AGMTK_PlatformManager* PlatformManagerRef{  nullptr };
 
@@ -42,7 +41,11 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Camera|Inputs|Cat")
 	UInputAction* JumpAction;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Camera|Inputs|Cat")
+	UInputAction* VerticalJumpAction;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Camera|Inputs|Cat")
 	UInputAction* DashAction;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Camera|Inputs|Cat")
+	UInputAction* ShrinkAction;
 
 	// Platform Inputs
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Camera|Inputs|Cat")
@@ -56,7 +59,7 @@ public:
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
-private:
+
 public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
@@ -69,6 +72,8 @@ public:
 	void JumpCatStart(const FInputActionValue& Value);
 	void JumpCatEnd(const FInputActionValue& Value);
 	void DashCat(const FInputActionValue& Value);
+	void VerticalJumpCat(const FInputActionValue& Value);
+	void ShrinkCat(const FInputActionValue& Value);
 	
 	void MovePlatform(const FInputActionValue& Value);
 	void SelectPlatform(const FInputActionValue& Value);
