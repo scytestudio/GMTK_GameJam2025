@@ -10,6 +10,7 @@
 
 AGMTK_CatBase::AGMTK_CatBase()
 {
+
 	SpringArm = CreateDefaultSubobject<USpringArmComponent>("SpringArm");
 	SpringArm->SetupAttachment(RootComponent);
 	CaptureComponent = CreateDefaultSubobject<USceneCaptureComponent2D>("SceneCaptureComponent2D");
@@ -35,6 +36,8 @@ void AGMTK_CatBase::UpdateDirection(float MoveDirection)
 void AGMTK_CatBase::OnDashOverrideAnimEnd(bool Completed)
 {
 	bCanDash = true;
+	
+	UE_LOG(LogTemp, Warning, TEXT("Dash Completed"));
 }
 
 void AGMTK_CatBase::MoveCat(float Direction)

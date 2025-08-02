@@ -19,6 +19,8 @@ class GMTK_GAMEJAM2025_API AGMTK_CatBase : public APaperZDCharacter
 
 public:
 	AGMTK_CatBase();
+
+	
 	
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category="Cat|Components")
 	USceneCaptureComponent2D* CaptureComponent;
