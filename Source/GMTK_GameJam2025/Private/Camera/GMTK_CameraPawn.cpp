@@ -7,7 +7,7 @@
 #include "Character/GMTK_CatBase.h"
 #include "EnhancedInputComponent.h"
 #include "EnhancedInputSubsystems.h"
-#include "PlatformManager.h"
+#include "Platform/GMTK_PlatformManager.h"
 #include "Kismet/GameplayStatics.h"
 
 AGMTK_CameraPawn::AGMTK_CameraPawn()
@@ -30,7 +30,7 @@ void AGMTK_CameraPawn::BeginPlay()
 		}
 	}
 	CatRef = Cast<AGMTK_CatBase>(UGameplayStatics::GetActorOfClass(this, AGMTK_CatBase::StaticClass()));
-	PlatformManagerRef = Cast<APlatformManager>(UGameplayStatics::GetActorOfClass(this, APlatformManager::StaticClass()));
+	PlatformManagerRef = Cast<AGMTK_PlatformManager>(UGameplayStatics::GetActorOfClass(this, AGMTK_PlatformManager::StaticClass()));
 	if (CatRef)
 	{
 		UE_LOG(LogTemp, Warning, TEXT("Cat is alive"));
