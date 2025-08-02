@@ -58,6 +58,10 @@ void AGMTK_CameraPawn::SetupPlayerInputComponent(UInputComponent* PlayerInputCom
 		, &AGMTK_CameraPawn::JumpCatEnd);
 		EnhancedInputComponent->BindAction(DashAction, ETriggerEvent::Started, this
 		, &AGMTK_CameraPawn::DashCat);
+		EnhancedInputComponent->BindAction(ShrinkAction, ETriggerEvent::Started, this
+		, &AGMTK_CameraPawn::ShrinkCat);
+		EnhancedInputComponent->BindAction(VerticalJumpAction, ETriggerEvent::Started, this
+		, &AGMTK_CameraPawn::VerticalJumpCat);
 
 		// Platform Binding
 		EnhancedInputComponent->BindAction(MovePlatformAction, ETriggerEvent::Started, this
@@ -70,41 +74,44 @@ void AGMTK_CameraPawn::SetupPlayerInputComponent(UInputComponent* PlayerInputCom
 
 void AGMTK_CameraPawn::MoveCat(const FInputActionValue& Value)
 {
-	if (CatRef)
-	{
-		UE_LOG(LogTemp, Warning, TEXT("Cat is Moving"));
-		float MoveActionValue = Value.Get<float>();
-		CatRef->MoveCat(MoveActionValue);
-	}
-	else
-	{
-		UE_LOG(LogTemp, Warning, TEXT("Cat Not Found"));
-	}
+	if (!CatRef) return;
+	UE_LOG(LogTemp, Warning, TEXT("Cat is Moving"));
+	float MoveActionValue = Value.Get<float>();
+	CatRef->MoveCat(MoveActionValue);
+	
 }
 
 void AGMTK_CameraPawn::JumpCatStart(const FInputActionValue& Value)
 {
-	if (CatRef)
-	{
-		CatRef->Jump();
-	}
+	if (!CatRef) return;
+	CatRef->Jump();
+
 }
 
 void AGMTK_CameraPawn::JumpCatEnd(const FInputActionValue& Value)
 {
-	if (CatRef)
-	{
-		CatRef->StopJumping();
-	}
+	if (!CatRef) return;
+	CatRef->StopJumping();
 }
 
 void AGMTK_CameraPawn::DashCat(const FInputActionValue& Value)
 {
-	if (CatRef)
-	{
-		UE_LOG(LogTemp, Warning, TEXT("Dash Pressed"));
-		CatRef->DashCat();
-	}
+	if (!CatRef) return;
+	UE_LOG(LogTemp, Warning, TEXT("Dash Pressed"));
+	CatRef->DashCat();
+}
+
+void AGMTK_CameraPawn::VerticalJumpCat(const FInputActionValue& Value)
+{
+	if (!CatRef) return;
+	CatRef->VerticalJumpCat();
+}
+
+void AGMTK_CameraPawn::ShrinkCat(const FInputActionValue& Value)
+{
+	if (!CatRef) return;
+	UE_LOG(LogTemp, Warning, TEXT("Shrink Cat Pressed"));
+	CatRef->ShrinkCat();
 }
 
 void AGMTK_CameraPawn::MovePlatform(const FInputActionValue& Value)
