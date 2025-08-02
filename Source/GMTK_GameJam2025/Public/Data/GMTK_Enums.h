@@ -18,6 +18,15 @@ enum class EGMTK_RealCatHandStates : uint8
 	ERCS_HandIdle UMETA(DisplayName = "Hand Idle"),
 	ERCS_HandMoving UMETA(DisplayName = "Hand Moving"),
 };
+
+UENUM(BlueprintType)
+enum class EGMTK_KeyboardStates : uint8
+{
+	EKS_Idle UMETA(DisplayName = "Idle"),
+	EKS_PlayLeft UMETA(DisplayName = "PlayLeft"),
+	EKS_PlayRight UMETA(DisplayName = "PlayRight"),
+	EKS_PlayBoth UMETA(DisplayName = "PlayBoth"),
+};
 /**
  * 
  */
