@@ -65,6 +65,9 @@ void AGMTK_CameraPawn::SetupPlayerInputComponent(UInputComponent* PlayerInputCom
 		
 		EnhancedInputComponent->BindAction(SelectPlatformAction, ETriggerEvent::Started, this
 			, &AGMTK_CameraPawn::SelectPlatform);
+
+		EnhancedInputComponent->BindAction(Debug_RandomizePlatformsAction, ETriggerEvent::Started, this
+			, &AGMTK_CameraPawn::DEBUG_RandomizePlatforms);
 	}
 }
 
@@ -124,6 +127,14 @@ void AGMTK_CameraPawn::SelectPlatform(const FInputActionValue& Value)
 		// Log for debug
 		GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Cyan,
 			FString::Printf(TEXT("Platform Manager Ref Found - Can Select Platform")));
+	}
+}
+
+void AGMTK_CameraPawn::DEBUG_RandomizePlatforms(const FInputActionValue& Value)
+{
+	if (PlatformManagerRef)
+	{
+		PlatformManagerRef->RandomizeInView(4);
 	}
 }
 

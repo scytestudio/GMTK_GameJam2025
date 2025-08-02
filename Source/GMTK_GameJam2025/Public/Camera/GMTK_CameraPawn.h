@@ -49,6 +49,9 @@ public:
 	UInputAction* MovePlatformAction;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Camera|Inputs|Cat")
 	UInputAction* SelectPlatformAction;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Camera|Inputs|Cat")
+	UInputAction* Debug_RandomizePlatformsAction;
 	
 protected:
 	// Called when the game starts or when spawned
@@ -69,4 +72,5 @@ public:
 	
 	void MovePlatform(const FInputActionValue& Value);
 	void SelectPlatform(const FInputActionValue& Value);
+	void DEBUG_RandomizePlatforms(const FInputActionValue& Value);
 };
